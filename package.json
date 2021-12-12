@@ -15,5 +15,10 @@
   "bugs": {
     "url": "https://github.com/TluwaniMS/basic-graphql-server-using-graphql-types/issues"
   },
-  "homepage": "https://github.com/TluwaniMS/basic-graphql-server-using-graphql-types#readme"
+  "homepage": "https://github.com/TluwaniMS/basic-graphql-server-using-graphql-types#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "express-graphql": "^0.12.0",
+    "graphql": "^16.1.0"
+  }
 }
