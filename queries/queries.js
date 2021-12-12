@@ -5,15 +5,15 @@ const {
   updateUser,
   addUser
 } = require("../services/resolver-services");
-const { GraphQLString, GraphQLList } = require("graphql");
+const { GraphQLString, GraphQLList, GraphQLNonNull } = require("graphql");
 const { UserType } = require("../models/user-model");
 
 const addUserQuery = {
   type: GraphQLString,
   args: {
-    email: { type: GraphQLString },
-    firstName: { type: GraphQLString },
-    lastName: { type: GraphQLString }
+    email: { type: new GraphQLNonNull(GraphQLString) },
+    firstName: { type: new GraphQLNonNull(GraphQLString) },
+    lastName: { type: new GraphQLNonNull(GraphQLString) }
   },
   resolve(parent, args) {
     return addUser(args);
@@ -30,7 +30,7 @@ const getAllUsersQuery = {
 const getUserByEmailQuery = {
   type: UserType,
   args: {
-    email: { type: GraphQLString }
+    email: { type: new GraphQLNonNull(GraphQLString) }
   },
   resolve(parent, args) {
     return getUserByEmail(args);
@@ -39,7 +39,7 @@ const getUserByEmailQuery = {
 
 const deleteUserByEmailQuery = {
   type: GraphQLString,
-  args: { email: { type: GraphQLString } },
+  args: { email: { type: new GraphQLNonNull(GraphQLString) } },
   resolve(parent, args) {
     return deleteUserByEmail(args);
   }
@@ -47,7 +47,11 @@ const deleteUserByEmailQuery = {
 
 const updateUserByEmailQuery = {
   type: GraphQLString,
-  args: { email: { type: GraphQLString }, firstName: { type: GraphQLString }, lastName: { type: GraphQLString } },
+  args: {
+    email: { type: new GraphQLNonNull(GraphQLString) },
+    firstName: { type: new GraphQLNonNull(GraphQLString) },
+    lastName: { type: new GraphQLNonNull(GraphQLString) }
+  },
   resolve(parent, args) {
     return updateUser(args);
   }
