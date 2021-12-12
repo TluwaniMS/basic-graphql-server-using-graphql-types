@@ -26,4 +26,4 @@ const updateUser = (args) => {
   });
 };
 
-module.exports = { getAllUsers };
+module.exports = { getAllUsers, getUserByEmail, addUser, deleteUserByEmail, updateUser };
