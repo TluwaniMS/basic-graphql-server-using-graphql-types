@@ -7,17 +7,24 @@ const {
   updateUserByEmailQuery
 } = require("./queries/queries");
 
-const RootQuery = new GraphQLObjectType({
+const Query = new GraphQLObjectType({
   name: "RootQueryType",
   fields: {
-    addUser: addUserQuery,
     getAllUsers: getAllUsersQuery,
-    getUserByEmail: getUserByEmailQuery,
+    getUserByEmail: getUserByEmailQuery
+  }
+});
+
+const Mutation = new GraphQLObjectType({
+  name: "Mutations",
+  fields: {
+    addUser: addUserQuery,
     deleteUserByEmail: deleteUserByEmailQuery,
     updateUserByEmail: updateUserByEmailQuery
   }
 });
 
 module.exports = new GraphQLSchema({
-  query: RootQuery
+  query: Query,
+  mutation: Mutation
 });
