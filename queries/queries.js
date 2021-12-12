@@ -30,10 +30,10 @@ const getAllUsersQuery = {
 const getUserByEmailQuery = {
   type: UserType,
   args: {
-    email: { type: GraphQLString },
-    resolve(parent, args) {
-      return getUserByEmail(args);
-    }
+    email: { type: GraphQLString }
+  },
+  resolve(parent, args) {
+    return getUserByEmail(args);
   }
 };
 
