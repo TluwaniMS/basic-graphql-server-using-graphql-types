@@ -1,8 +1,12 @@
 const { users } = require("../sample-data/sample-user-data");
 
-const getAllUsers = () => {return users};
+const getAllUsers = () => {
+  return users;
+};
 
-const getUserByEmail = (args) => {return users.filter((user) => (user.email === args.email))[0];}
+const getUserByEmail = (args) => {
+  return users.filter((user) => user.email === args.email)[0];
+};
 
 const addUser = (args) => {
   const newUser = {
@@ -13,7 +17,7 @@ const addUser = (args) => {
 
   users.push(newUser);
 
-  return `User with name ${newUser.firstName} has been created successfully`
+  return `User with name ${newUser.firstName} has been created successfully`;
 };
 
 const deleteUserByEmail = (args) => {
@@ -21,7 +25,7 @@ const deleteUserByEmail = (args) => {
   const userIndex = users.indexOf(selectedUser);
   users.splice(userIndex, 1);
 
-  return `User has been successfuly deleted.`
+  return `User has been successfuly deleted.`;
 };
 
 const updateUser = (args) => {
@@ -29,7 +33,7 @@ const updateUser = (args) => {
     user.email === args.email ? ((user.firstName = args.firstName), (user.lastName = args.lastName)) : "";
   });
 
-  return `User has been updated successfuly.`
+  return `User has been updated successfuly.`;
 };
 
 module.exports = { getAllUsers, getUserByEmail, addUser, deleteUserByEmail, updateUser };
