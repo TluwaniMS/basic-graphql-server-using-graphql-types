@@ -10,7 +10,16 @@ This is a basic node-js graphql-server that I created to learn how to use graphq
 
 * Step 1:
 
-Switch to the projects root directory and run "npm install" to install the rquired packages.
+Switch to the projects root directory and run `npm install` to install the rquired packages.
+
+* Step 2:
+
+In the projects root directory create a .env file and add the following variables:
+* PORT
+
+* Step 3:
+
+Run `npm run dev` to run the projects server.
 
 # Dependencies:
 * EXPRESS
